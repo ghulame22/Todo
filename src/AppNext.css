@@ -2,13 +2,13 @@
   margin: 0;
   padding: 0;
 }
-.main {
+.theme {
   background: rgba(24, 24, 36, 255);
   min-height: 100vh;
 }
-.toggleMain {
-  background: white;
-  min-height: 100vh;
+.nightMode {
+  background: none;
+  border: none;
 }
 .bgCover {
   display: flex;
@@ -44,24 +44,9 @@
   outline: none;
   font-family: "Josefin Sans", sans-serif;
   font-size: 18px;
-  color: white;
-  cursor: pointer;
-  caret-color: rgb(150, 255, 255);
-}
-.input2 {
-  min-width: 22rem;
-  margin: 2rem 0rem;
-  padding: 0.8rem 3rem;
-  border: none;
-  border-radius: 0.3rem;
-  background: white;
-  outline: none;
-  font-family: "Josefin Sans", sans-serif;
-  font-size: 18px;
   color: gray;
   cursor: pointer;
   caret-color: rgb(150, 255, 255);
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .todoList {
   min-width: 28rem;
@@ -71,17 +56,8 @@
   min-height: 19.5rem;
   overflow-x: hidden;
 }
-.todoList2 {
-  min-width: 28rem;
-  background: white;
-  border-top-left-radius: 0.3rem;
-  border-top-right-radius: 0.3rem;
-  min-height: 19.5rem;
-  overflow-x: hidden;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-.todoList::-webkit-scrollbar,
-.todoList2::-webkit-scrollbar {
+
+.todoList::-webkit-scrollbar {
   display: none;
 }
 .item {
@@ -96,7 +72,6 @@
   letter-spacing: 1px;
   word-wrap: break-word;
   font-size: 18px;
-  /* cursor: pointer; */
 }
 .btn {
   position: absolute;
@@ -162,11 +137,7 @@
   width: 22rem;
   cursor: pointer;
 }
-.itemName2 {
-  width: 22rem;
-  text-decoration: line-through;
-  opacity: 0.5;
-}
+
 .btnCross {
   display: none;
 }
@@ -186,18 +157,6 @@
   display: flex;
   align-items: center;
   font-size: 0.7em;
-}
-.menu2 {
-  min-width: 28rem;
-  background: white;
-  border-top: 1px solid rgb(191, 242, 255);
-  border-bottom-left-radius: 0.3rem;
-  border-bottom-right-radius: 0.3rem;
-  min-height: 2.5rem;
-  display: flex;
-  align-items: center;
-  font-size: 0.7em;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .menuOption1 {
   display: flex;
@@ -229,27 +188,19 @@
   cursor: pointer;
   margin: 0rem 0.5rem;
 }
-.menuMob, .menuMob2 {
+.menuMob {
   display: none;
 }
 
-/* @media screen and (max-width: 800px) {
-  .btnCross {
-    display: flex;
-  }
-} */
 @media screen and (max-width: 565px) {
   .head,
-  .todoList,
-  .todoList2 {
+  .todoList {
     min-width: 18rem;
   }
-  .itemName,
-  .itemName2 {
+  .itemName {
     width: 13.3rem;
   }
-  .input,
-  .input2 {
+  .input {
     min-width: 12rem;
   }
   .item {
@@ -258,8 +209,7 @@
   .btnCross {
     display: flex;
   }
-  .menu,
-  .menu2 {
+  .menu {
     min-width: 18rem;
   }
   .menuSubmenu {
@@ -274,24 +224,9 @@
     background: rgba(37, 39, 60, 255);
     outline: none;
     font-family: "Josefin Sans", sans-serif;
-    /* font-size: 18px; */
+    font-size: 18px;
     display: flex;
     color: grey;
     justify-content: space-evenly;
-  }
-  .menuMob2 {
-    min-width: 12rem;
-    margin: 1rem 0rem;
-    padding: 0.8rem 3rem;
-    border: none;
-    border-radius: 0.3rem;
-    outline: none;
-    font-family: "Josefin Sans", sans-serif;
-    /* font-size: 18px; */
-    display: flex;
-    color: grey;
-    justify-content: space-evenly;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    background: white;
   }
 }
