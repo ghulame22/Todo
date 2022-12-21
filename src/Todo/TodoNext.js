@@ -64,21 +64,18 @@ function Todo() {
 
   const allItem = () => {
     setCTodoList([...todoList]);
-    console.log(todoList, "all");
   };
 
   const active = () => {
     let tempArr = [...todoList];
     let active = tempArr.filter((item) => item.isEdit !== true);
     setCTodoList(active);
-    console.log(active, "active");
   };
 
   const completed = () => {
     let tempArr = [...todoList];
     let completed = tempArr.filter((item) => item.isEdit !== false);
     setCTodoList(completed);
-    console.log(completed, "comp");
   };
 
   const clearComplete = () => {

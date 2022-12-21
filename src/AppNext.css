@@ -137,7 +137,9 @@
   width: 22rem;
   cursor: pointer;
 }
-
+.itemName2 {
+  width: 22rem;
+}
 .btnCross {
   display: none;
 }
@@ -197,7 +199,7 @@
   .todoList {
     min-width: 18rem;
   }
-  .itemName {
+  .itemName, .itemName2 {
     width: 13.3rem;
   }
   .input {
