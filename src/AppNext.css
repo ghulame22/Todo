@@ -137,9 +137,15 @@ body {
   position: relative;
   justify-content: center;
 }
-.itemName, .itemName2 {
+.itemName {
   width: 32rem;
   cursor: pointer;
+}
+.itemName2 {
+  cursor: pointer;
+  width: 32rem;
+  opacity: 0.5;
+  text-decoration: line-through;
 }
 .btnCross {
   display: none;
@@ -201,7 +207,8 @@ body {
   .todoList {
     min-width: 18rem;
   }
-  .itemName, .itemName2 {
+  .itemName,
+  .itemName2 {
     width: 13.3rem;
   }
   .input {
