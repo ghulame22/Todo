@@ -140,6 +140,7 @@ body {
 .itemName {
   width: 32rem;
   cursor: pointer;
+  color: white;
 }
 .itemName2 {
   cursor: pointer;
