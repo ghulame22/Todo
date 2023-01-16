@@ -5,8 +5,32 @@ import "../AppNext.css";
 
 function Todo() {
   const [todo, setTodo] = useState({ detail: "" });
-  const [todoList, setTodoList] = useState([]);
-  const [ctodoList, setCTodoList] = useState([]);
+  const [todoList, setTodoList] = useState(() => {
+    // get the todos from localstorage
+    const savedTodos = localStorage.getItem("todoList");
+    // if there are todos stored
+    if (savedTodos) {
+      // return the parsed the JSON object back to a javascript object
+      return JSON.parse(savedTodos);
+      // otherwise
+    } else {
+      // return an empty array
+      return [];
+    }
+  });
+  const [ctodoList, setCTodoList] = useState(() => {
+    // get the todos from localstorage
+    const savedTodos = localStorage.getItem("ctodoList");
+    // if there are todos stored
+    if (savedTodos) {
+      // return the parsed the JSON object back to a javascript object
+      return JSON.parse(savedTodos);
+      // otherwise
+    } else {
+      // return an empty array
+      return [];
+    }
+  });
   const [theme, setTheme] = useState("dark");
   const [thisTheme, setThisTheme] = useState({});
   const [checked, setChecked] = useState("btnUncheck");
@@ -21,6 +45,10 @@ function Todo() {
       setThisTheme({ ...dark });
     }
   };
+
+  useEffect(() => {
+    localStorage.setItem("ctodoList", JSON.stringify(ctodoList));
+  }, [ctodoList]); 
 
   useEffect(() => {
     setTheme("dark");
