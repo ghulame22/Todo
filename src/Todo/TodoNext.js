@@ -19,19 +19,21 @@ function Todo() {
     }
   });
   const [ctodoList, setCTodoList] = useState(() => {
-    // get the todos from localstorage
-    const savedTodos = localStorage.getItem("ctodoList");
-    // if there are todos stored
-    if (savedTodos) {
-      // return the parsed the JSON object back to a javascript object
-      return JSON.parse(savedTodos);
-      // otherwise
+    const csavedTodos = localStorage.getItem("ctodoList");
+    if (csavedTodos) {
+      return JSON.parse(csavedTodos);
     } else {
-      // return an empty array
       return [];
     }
   });
-  const [theme, setTheme] = useState("dark");
+  const [theme, setTheme] = useState(() => {
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme) {
+      return savedTheme;
+    } else {
+      return "dark";
+    }
+  });
   const [thisTheme, setThisTheme] = useState({});
   const [checked, setChecked] = useState("btnUncheck");
   const [remCount, setRemCount] = useState(0);
@@ -48,12 +50,11 @@ function Todo() {
 
   useEffect(() => {
     localStorage.setItem("ctodoList", JSON.stringify(ctodoList));
-  }, [ctodoList]); 
-
-  useEffect(() => {
+    localStorage.setItem("todoList", JSON.stringify(todoList));
+    localStorage.setItem("theme", theme);
     setTheme("dark");
     setThisTheme(dark);
-  }, []);
+  }, [ctodoList]);
 
   const createTodo = (e) => {
     e.preventDefault();
@@ -71,13 +72,14 @@ function Todo() {
 
   const taskDone = (index) => {
     let tempArr = [...todoList];
-    tempArr[index].isEdit = !tempArr[index].isEdit;
+    let tempArr2 = [...ctodoList];
+    tempArr2[index].isEdit = !tempArr2[index].isEdit;
     let count = tempArr.filter((item) => item.isEdit !== false);
     setRemCount(tempArr.length - count.length);
     checked === "btnUncheck"
       ? setChecked("btnChecked")
       : setChecked("btnUncheck");
-    setCTodoList(tempArr);
+    setCTodoList(tempArr2);
     setTodoList(tempArr);
   };
 
@@ -149,7 +151,10 @@ function Todo() {
           <div className="btn"></div>
           <input
             className="input"
-            style={{ background: `${thisTheme.inputBg}` }}
+            style={{
+              background: `${thisTheme.inputBg}`,
+              color: `${thisTheme.color}`,
+            }}
             type="text"
             value={todo.detail}
             onChange={(e) => setTodo(() => ({ detail: e.target.value }))}
@@ -180,7 +185,10 @@ function Todo() {
                   </svg>
                 </div>
               </div>
-              <div className={todo.isEdit ? "itemName2" : "itemName"}>
+              <div
+                className={todo.isEdit ? "itemName2" : "itemName"}
+                style={{ color: `${thisTheme.color}` }}
+              >
                 {todo.detail}
               </div>
               <div className="btnCross" onClick={() => deleteItem(index)}>

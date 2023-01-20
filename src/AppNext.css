@@ -89,8 +89,9 @@ body {
 }
 .btnUncheck {
   position: absolute;
-  height: 15px;
-  min-width: 15px;
+  box-sizing: border-box;
+  height: 20px;
+  min-width: 20px;
   border-radius: 50%;
   /* background-image: linear-gradient(to bottom right,rgb(127, 202, 231),rgb(185, 90, 248)); */
   margin: 1rem;
@@ -124,8 +125,9 @@ body {
 }
 .btnChecked {
   position: absolute;
-  height: 15px;
-  min-width: 15px;
+  box-sizing: border-box;
+  height: 20px;
+  min-width: 20px;
   border-radius: 50%;
   background-image: linear-gradient(
     to bottom right,
@@ -133,7 +135,6 @@ body {
     rgba(159, 124, 244, 255)
   );
   margin: 1rem;
-  border: 2px solid gray;
   display: flex;
   position: relative;
   justify-content: center;
@@ -200,6 +201,9 @@ body {
   cursor: pointer;
   /* margin: 0rem 0.5rem; */
 }
+.menuSubmenuitem:focus {
+  color: #4b78d9;
+}
 .menuMob {
   display: none;
 }
@@ -240,6 +244,9 @@ body {
     font-size: 18px;
     display: flex;
     color: grey;
-    justify-content: space-evenly;
+    gap: 1rem;
+  }
+  .menuMob:focus {
+    color: #4b78d9;
   }
 }
